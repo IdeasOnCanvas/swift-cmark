@@ -11,6 +11,9 @@
 
 #define BUFFER_SIZE 100
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 // Functions to convert cmark_nodes to XML strings.
 
 static void escape_xml(cmark_strbuf *dest, const unsigned char *source,
@@ -171,3 +174,5 @@ char *cmark_render_xml(cmark_node *root, int options) {
   cmark_iter_free(iter);
   return result;
 }
+
+#pragma clang diagnostic pop

@@ -30,6 +30,9 @@
 
 #define peek_at(i, n) (i)->data[n]
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 static bool S_last_line_blank(const cmark_node *node) {
   return (node->flags & CMARK_NODE__LAST_LINE_BLANK) != 0;
 }
@@ -1291,3 +1294,5 @@ cmark_node *cmark_parser_finish(cmark_parser *parser) {
 #endif
   return parser->root;
 }
+
+#pragma clang diagnostic pop

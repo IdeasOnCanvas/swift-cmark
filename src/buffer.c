@@ -20,6 +20,9 @@ unsigned char cmark_strbuf__initbuf[1];
 #define MIN(x, y) ((x < y) ? x : y)
 #endif
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 void cmark_strbuf_init(cmark_mem *mem, cmark_strbuf *buf,
                        bufsize_t initial_size) {
   buf->mem = mem;
@@ -276,3 +279,5 @@ extern void cmark_strbuf_unescape(cmark_strbuf *buf) {
 
   cmark_strbuf_truncate(buf, w);
 }
+
+#pragma clang diagnostic pop

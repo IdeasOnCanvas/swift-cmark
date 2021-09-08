@@ -6,6 +6,9 @@
 #include "node.h"
 #include "cmark_ctype.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 static CMARK_INLINE void S_cr(cmark_renderer *renderer) {
   if (renderer->need_cr < 1) {
     renderer->need_cr = 1;
@@ -190,3 +193,5 @@ char *cmark_render(cmark_node *root, int options, int width,
 
   return result;
 }
+
+#pragma clang diagnostic pop

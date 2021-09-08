@@ -12,6 +12,9 @@
 
 #define BUFFER_SIZE 100
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 // Functions to convert cmark_nodes to HTML strings.
 
 static void escape_html(cmark_strbuf *dest, const unsigned char *source,
@@ -339,3 +342,5 @@ char *cmark_render_html(cmark_node *root, int options) {
   cmark_iter_free(iter);
   return result;
 }
+
+#pragma clang diagnostic pop

@@ -19,6 +19,9 @@
 #define ENCODED_SIZE 20
 #define LISTMARKER_SIZE 20
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 // Functions to convert cmark_nodes to commonmark strings.
 
 static CMARK_INLINE void outc(cmark_renderer *renderer, cmark_escaping escape,
@@ -479,3 +482,5 @@ char *cmark_render_commonmark(cmark_node *root, int options, int width) {
   }
   return cmark_render(root, options, width, outc, S_render_node);
 }
+
+#pragma clang diagnostic pop
