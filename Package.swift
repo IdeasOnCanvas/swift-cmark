@@ -8,6 +8,7 @@ let package = Package(
   products: [
     .library(
       name: "cmark",
+	  type: .static,
       targets: ["cmark"]),
   ],
   targets: [
